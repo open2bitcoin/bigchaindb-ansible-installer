@@ -1,0 +1,41 @@
+---
+# Python variables
+python_version_suffix: "3.6"
+python_deb_package_name: "python{{ python_version_suffix }}"
+python_pip_deb_package_name: "python3-pip"
+python_venv_deb_package_name: "python{{ python_version_suffix }}-venv"
+# Users
+bigchaindb_group: "bigchaindb"
+bigchaindb_user: "bigchaindb"
+tendermint_user: "tendermint"
+
+# Mongdb
+mongodb_deb_package_name: "mongodb-org"
+mongodb_version: "3.6"
+
+# Golang
+go_deb_package_name: "golang"
+
+# Tendermint
+tendermint_repo: "github.com/tendermint/tendermint"
+tendermint_branch: "v0.31.5"  # NOTE: use "v0.22.8" for bigchaindb v2.0.0b9
+tendermint_connect_nodes: true  # connect nodes into network
+tendermint_chain_id: "generate"
+
+# Bigchaindb
+bigchaindb_version: "v2.0.0"
+bigchaindb_log_folder: "/var/log"
+
+# Nginx
+nginx_enable: false
+nginx_servername: "server.name"
+nginx_selfsigned: true
+nginx_copy_existing_certs: false
+# NOTE `nginx_selfsigned` and `nginx_copy_existing_certs` mutually exclusive!
+nginx_deb_package_name: "nginx"
+nginx_conf_loc: "/etc/nginx/nginx.conf"
+nginx_conf_net_loc: "https://raw.githubusercontent.com/bigchaindb/bigchaindb/{{ bigchaindb_version }}/nginx/nginx.conf"
+
+# etc
+use_trusted_ntp: true
+nologin_binary: "/usr/sbin/nologin"
